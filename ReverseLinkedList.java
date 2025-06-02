@@ -44,9 +44,40 @@ class ReverseLinkedList{
         }
     }
 
+    public static ListNode rotateRight(ListNode head, int k) {
+        if(head == null)return head;
+        ListNode tail = head;
+        int count = 1;
+        while(tail.next != null){
+            tail = tail.next;
+            count++;
+        }
+        tail.next = head;
+        k = k%count;
+               if (k == 0) {
+            tail.next = null; // If k is a multiple of length, no change
+            return head;
+        }
+        ListNode newTail = head;
+        // while(k != 0 ){
+        //     newTail = newTail.next;
+        //     k--;
+        // }
+        for (int i = 0; i < count - k - 1; i++) {
+            newTail = newTail.next; // Move to the correct spot
+        }
+        ListNode nhead = newTail.next;
+        newTail.next = null;
+        return nhead;
+
+    }
+
     public static void main(String args[]){
         ListNode head = createLL();
         ListNode ans = reverse(head);
         printLL(ans);
+        System.out.println("");
+        ListNode rr = rotateRight(ans, 2);
+        printLL(rr);
     }
 }
