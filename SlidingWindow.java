@@ -34,7 +34,6 @@ public class SlidingWindow {
         return max;
     }
 
-    class Solution {
     public String minWindow(String s, String t) {
         if (s == null || t == null || s.length() ==0 || t.length() == 0 ||
                 s.length() < t.length()) {
@@ -65,5 +64,4 @@ public class SlidingWindow {
         return minLen == Integer.MAX_VALUE? new String():
                 new String(chS,startIndex,minLen);
     }
-}
 }

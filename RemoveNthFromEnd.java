@@ -21,7 +21,7 @@ public class RemoveNthFromEnd{
         for(int i=0;i<k;i++) fast = fast.next;
         if(fast == null)return head.next;
         ListNode slow = head;
-        while(fast.next !- null){
+        while(fast.next != null){
             slow = slow.next;
             fast = fast.next;
         }
